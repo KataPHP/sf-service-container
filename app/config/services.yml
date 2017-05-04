@@ -4,7 +4,13 @@ parameters:
     #parameter_name: value
 
 services:
+    app.uppercase.transformer:
+        class: AppBundle\Transformer\UppercaseTransformer
+        arguments: ['@logger']
+
     app.uppercase.twig_extension:
         class: AppBundle\Twig\MyUppercaseExtension
+        arguments: ['@app.uppercase.transformer']
+        # or we can use autowire: true
         tags:
             - { name: twig.extension }
