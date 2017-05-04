@@ -1,7 +1,7 @@
-Kata Service
+Kata Service Container
 =======
 
-Simple kata on Symfony Services.
+Kata on Symfony Services Container.
 
 Install
 -------
@@ -13,21 +13,25 @@ Install
 $ composer install
 ```
 
+3) Run this project
+
+```bash
+$ php bin/console server:run
+```
+
 Goals
 -----
 
-* Create Service (with dependencies)
-* Use existing Symfony service
+* Create a new service (with dependencies)
+* Use existing Symfony services
 
 Instructions
 ------------
 
 1) Create a new Class UppercaseTransformer to uppercase a given string
 2) Declare this new class as a service into Symfony Service Container
-3) Create a new Twig extension UppercaseExtension
-    - Add new Filter MyUppercase (use our new UppercaseTransformer)
-4) Use our new Filter on the title onto article/list.html.twig
-5) We want to log (level Info) every Transformation
+3) Add our UppercaseTransformer into Twig UppercaseExtension instead of strtoupper function
+5) Add logger service into our new transformer to log every Transformation (level Info)
 
 Links
 -----
